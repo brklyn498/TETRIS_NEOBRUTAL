@@ -69,7 +69,7 @@ export function useGame() {
           break;
         case 'Enter':
           e.preventDefault();
-          if (state.status === 'idle' || state.status === 'gameover') {
+          if (state.status === 'idle' || (state.status as string) === 'gameover') {
             start();
           }
           break;

@@ -1,4 +1,4 @@
-import { GameState, GameAction, Tetromino } from '../types/game';
+import type { GameState, GameAction } from '../types/game';
 import {
   createEmptyBoard,
   createRandomTetromino,
