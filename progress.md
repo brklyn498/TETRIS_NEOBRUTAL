@@ -15,3 +15,9 @@
 - [x] Created tetromino definitions (shapes and colors) and helper functions in `src/constants/tetrominoes.ts`.
 - [x] Defined game constants (board dimensions, speed, scoring) in `src/constants/game.ts`.
 - [x] Verified type definitions and constants via build and test script.
+
+### ✅ Phase 3: Game Logic
+- [x] Implemented core game utility functions (collision, rotation, board management) in `src/utils/gameUtils.ts`.
+- [x] Implemented game state reducer and actions in `src/hooks/useGameReducer.ts`.
+- [x] Created main `useGame` hook with keyboard controls and game loop in `src/hooks/useGame.ts`.
+- [x] Verified logic implementation via TypeScript compilation.
