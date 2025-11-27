@@ -5,6 +5,7 @@ import { NextPiece } from './components/NextPiece';
 import { Controls } from './components/Controls';
 import { GameOver } from './components/GameOver';
 import { KeyboardHint } from './components/KeyboardHint';
+import { TouchControls } from './components/TouchControls';
 
 function App() {
   const { state, actions } = useGame();
@@ -45,6 +46,15 @@ function App() {
               </div>
             </div>
           )}
+
+          {/* Touch Controls (Mobile) */}
+          <TouchControls
+            onLeft={actions.moveLeft}
+            onRight={actions.moveRight}
+            onDown={actions.moveDown}
+            onRotate={actions.rotate}
+            onDrop={actions.hardDrop}
+          />
         </div>
 
         {/* Right sidebar - Next piece & Controls */}
