@@ -21,3 +21,14 @@
 - [x] Implemented game state reducer and actions in `src/hooks/useGameReducer.ts`.
 - [x] Created main `useGame` hook with keyboard controls and game loop in `src/hooks/useGame.ts`.
 - [x] Verified logic implementation via TypeScript compilation.
+
+### ✅ Phase 4: UI Components
+- [x] Created `Button` component in `src/components/ui/Button.tsx`.
+- [x] Created `Panel` component in `src/components/ui/Panel.tsx`.
+- [x] Created `Cell` component in `src/components/Cell.tsx`.
+- [x] Created `GameBoard` component in `src/components/GameBoard.tsx`.
+- [x] Created `ScorePanel` component in `src/components/ScorePanel.tsx`.
+- [x] Created `NextPiece` component in `src/components/NextPiece.tsx`.
+- [x] Created `Controls` component in `src/components/Controls.tsx`.
+- [x] Created `GameOver` component in `src/components/GameOver.tsx`.
+- [x] Created `KeyboardHint` component in `src/components/KeyboardHint.tsx`.
