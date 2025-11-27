@@ -1,4 +1,4 @@
-import { Board, CellValue, Tetromino, Position, Shape, TetrominoType } from '../types/game';
+import type { Board, Tetromino, Position, Shape, TetrominoType } from '../types/game';
 import { BOARD_WIDTH, BOARD_HEIGHT, SPAWN_POSITION, POINTS_TABLE } from '../constants/game';
 import { TETROMINOES, getRandomTetrominoType } from '../constants/tetrominoes';
 
