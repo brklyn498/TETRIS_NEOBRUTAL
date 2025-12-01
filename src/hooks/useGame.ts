@@ -1,6 +1,7 @@
 import { useReducer, useEffect, useCallback } from 'react';
 import { gameReducer, createInitialState } from './useGameReducer';
-import { INITIAL_DROP_SPEED, MIN_DROP_SPEED, SPEED_DECREMENT } from '../constants/game';
+import { MIN_DROP_SPEED, DIFFICULTY_SETTINGS } from '../constants/game';
+import type { Difficulty } from '../types/game';
 
 export function useGame() {
   const [state, dispatch] = useReducer(gameReducer, createInitialState());
@@ -14,11 +15,13 @@ export function useGame() {
   const moveDown = useCallback(() => dispatch({ type: 'MOVE_DOWN' }), []);
   const rotate = useCallback(() => dispatch({ type: 'ROTATE' }), []);
   const hardDrop = useCallback(() => dispatch({ type: 'HARD_DROP' }), []);
+  const setDifficulty = useCallback((difficulty: Difficulty) => dispatch({ type: 'SET_DIFFICULTY', payload: difficulty }), []);
 
-  // Calculate drop speed based on level
+  // Calculate drop speed based on level and difficulty
+  const settings = DIFFICULTY_SETTINGS[state.difficulty];
   const dropSpeed = Math.max(
     MIN_DROP_SPEED,
-    INITIAL_DROP_SPEED - state.level * SPEED_DECREMENT
+    settings.initialSpeed - state.level * settings.decrement
   );
 
   // Game tick
@@ -92,6 +95,7 @@ export function useGame() {
       moveDown,
       rotate,
       hardDrop,
+      setDifficulty,
     },
   };
 }

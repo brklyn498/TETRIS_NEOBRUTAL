@@ -1,4 +1,4 @@
-import type { GameState, GameAction } from '../types/game';
+import type { GameState, GameAction, Difficulty } from '../types/game';
 import {
   createEmptyBoard,
   createRandomTetromino,
@@ -10,7 +10,7 @@ import {
   calculateLevel,
 } from '../utils/gameUtils';
 
-export function createInitialState(): GameState {
+export function createInitialState(difficulty: Difficulty = 'MEDIUM'): GameState {
   return {
     board: createEmptyBoard(),
     currentPiece: null,
@@ -19,6 +19,7 @@ export function createInitialState(): GameState {
     level: 0,
     lines: 0,
     status: 'idle',
+    difficulty,
   };
 }
 
@@ -161,7 +162,7 @@ function hardDrop(state: GameState): GameState {
 export function gameReducer(state: GameState, action: GameAction): GameState {
   switch (action.type) {
     case 'START': {
-      const freshState = createInitialState();
+      const freshState = createInitialState(state.difficulty);
       return spawnNewPiece({
         ...freshState,
         status: 'playing',
@@ -182,7 +183,7 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
       return state;
 
     case 'RESTART':
-      return gameReducer(createInitialState(), { type: 'START' });
+      return gameReducer(createInitialState(state.difficulty), { type: 'START' });
 
     case 'MOVE_LEFT':
       return movePiece(state, -1, 0);
@@ -202,6 +203,12 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
     case 'TICK':
       if (state.status !== 'playing') return state;
       return movePiece(state, 0, 1);
+
+    case 'SET_DIFFICULTY':
+      return {
+        ...state,
+        difficulty: action.payload,
+      };
 
     default:
       return state;

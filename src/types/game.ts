@@ -19,6 +19,8 @@ export interface Tetromino {
 
 export type GameStatus = 'idle' | 'playing' | 'paused' | 'gameover';
 
+export type Difficulty = 'EASY' | 'MEDIUM' | 'HARD';
+
 export interface GameState {
   board: Board;
   currentPiece: Tetromino | null;
@@ -27,6 +29,7 @@ export interface GameState {
   level: number;
   lines: number;
   status: GameStatus;
+  difficulty: Difficulty;
 }
 
 export type GameAction =
@@ -39,4 +42,5 @@ export type GameAction =
   | { type: 'MOVE_DOWN' }
   | { type: 'ROTATE' }
   | { type: 'HARD_DROP' }
-  | { type: 'TICK' };
+  | { type: 'TICK' }
+  | { type: 'SET_DIFFICULTY'; payload: Difficulty };

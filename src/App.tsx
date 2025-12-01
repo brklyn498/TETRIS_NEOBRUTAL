@@ -6,6 +6,7 @@ import { Controls } from './components/Controls';
 import { GameOver } from './components/GameOver';
 import { KeyboardHint } from './components/KeyboardHint';
 import { TouchControls } from './components/TouchControls';
+import { DifficultySelector } from './components/DifficultySelector';
 
 function App() {
   const { state, actions } = useGame();
@@ -66,6 +67,11 @@ function App() {
             onPause={actions.pause}
             onResume={actions.resume}
             onRestart={actions.restart}
+          />
+          <DifficultySelector
+            currentDifficulty={state.difficulty}
+            onSelect={actions.setDifficulty}
+            disabled={state.status === 'playing' || state.status === 'paused'}
           />
           <KeyboardHint />
         </div>

@@ -3,9 +3,21 @@ export const BOARD_HEIGHT = 20;
 
 export const CELL_SIZE = 28; // pixels
 
-export const INITIAL_DROP_SPEED = 1000; // milliseconds
 export const MIN_DROP_SPEED = 100; // fastest speed
-export const SPEED_DECREMENT = 75; // ms faster per level
+export const DIFFICULTY_SETTINGS = {
+  EASY: {
+    initialSpeed: 1000,
+    decrement: 50,
+  },
+  MEDIUM: {
+    initialSpeed: 800,
+    decrement: 75,
+  },
+  HARD: {
+    initialSpeed: 500,
+    decrement: 100,
+  },
+};
 
 export const LINES_PER_LEVEL = 10;
 
